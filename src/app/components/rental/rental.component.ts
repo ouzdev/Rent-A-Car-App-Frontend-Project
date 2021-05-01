@@ -14,7 +14,6 @@ export class RentalComponent implements OnInit {
   ngOnInit(): void {
   this.rentalService.getRentalsDetail().subscribe(response=>{
       this.rentals = response.data;
-      console.log(this.rentals)
   })
 
   }
