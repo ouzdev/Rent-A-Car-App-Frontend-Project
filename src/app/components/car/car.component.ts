@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Car } from 'src/app/model/car/car';
+import { CarService } from 'src/app/services/car/car.service';
 
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
-  styleUrls: ['./car.component.css']
+  styleUrls: ['./car.component.css'],
 })
 export class CarComponent implements OnInit {
+  cars: Car[] = [];
 
-  constructor() { }
+  constructor(private carService:CarService) {
 
-  ngOnInit(): void {
   }
-
+  ngOnInit(): void {
+    this.carService.getCars().subscribe(respose=>{
+        this.cars = respose.data;
+    });
+  }
 }

@@ -31,10 +31,19 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.light.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/brands.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/solid.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/fontawesome.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/@fortawesome/fontawesome-free/js/brands.js",
+              "./node_modules/@fortawesome/fontawesome-free/js/solid.js",
+              "./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"
+            ]
           },
           "configurations": {
             "production": {
