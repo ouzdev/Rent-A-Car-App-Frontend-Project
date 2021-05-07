@@ -1,6 +1,6 @@
 # RecapAngularFrontEnd
 
-[<img src="https://github.com/ouzdev/Java_Bootcamp/blob/main/readme.png?raw=true">](http://google.com.au/)
+[<img src="https://github.com/ouzdev/Recap_AngularUI/blob/master/readme-image.png?raw=true">](http://google.com.au/)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
