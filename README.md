@@ -1,4 +1,4 @@
-# RecapAngularFrontEnd
+# Angular + DevExpress Rent a Car App
 
 [<img src="https://github.com/ouzdev/Recap_AngularUI/blob/master/readme-image.png?raw=true">](http://google.com.au/)
 
