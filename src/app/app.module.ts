@@ -12,7 +12,7 @@ import { RentalComponent } from './components/rental/rental.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ActivePipe } from 'src/shared/active-pipe';
-import { DxBoxModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxLoadIndicatorModule, DxNumberBoxModule, DxSelectBoxModule, DxTemplateModule } from 'devextreme-angular';
+import { DxBoxModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFileUploaderModule, DxFormModule, DxLoadIndicatorModule, DxNumberBoxModule, DxSelectBoxModule, DxTemplateModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { DxBoxModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxForm
   imports: [
     BrowserModule,
     AppRoutingModule,
+    DxFileUploaderModule,
     HttpClientModule,
     DxButtonModule,
     DxSelectBoxModule,
