@@ -1,63 +1,74 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h5 class="h2">Arabalar</h5>
-</div>
 <div class="table-responsive">
-  <dx-data-grid
-    id="gridContainer"
-    [dataSource]="carGridDataSource"
-    [showBorders]="true"
-    >
-    <dxo-header-filter [visible]="true" [allowSearch]="true"></dxo-header-filter>
-    <dxo-paging [pageSize]="5"></dxo-paging>
-    <dxo-editing
-    mode="row"
-    [allowUpdating]="true"
-    [allowDeleting]="true"
-    [allowAdding]="true">
-</dxo-editing>
-    <dxo-pager
-        [showPageSizeSelector]="true"
-        [allowedPageSizes]="[5, 10, 20]"
-        [showInfo]="true">
-    </dxo-pager>
-    <dxi-column dataField="id" caption="Id"></dxi-column>
-    <dxi-column dataField="carName" caption="Araba Adı"></dxi-column>
-    <dxi-column dataField="modelYear" caption="Model"></dxi-column>
-    <dxi-column dataField="colorName" caption="Renk"></dxi-column>
-    <dxi-column dataField="brandName" caption="Marka"></dxi-column>
-    <dxi-column dataField="dailyPrice" caption="Günlük Kiralama Ücreti"></dxi-column>
-    <dxi-column dataField="description" caption="Açıklama"></dxi-column>
+    <dx-data-grid id="gridContainer" [dataSource]="carGridDataSource" [showBorders]="true" [columnAutoWidth]="true"
+        (onRowInserting)="addCarEvent($event)" (onInitNewRow)="initNewCar('InitNewRow')"
+        (onEditingStart)="updateCar('EditingStart')">
+        <dxo-load-panel [enabled]="true">
+        </dxo-load-panel>
+        <dxo-header-filter [visible]="true" [allowSearch]="true"></dxo-header-filter>
+        <dxo-paging [pageSize]="5"></dxo-paging>
+        <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
+        </dxo-editing>
+        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]" [showInfo]="true">
+        </dxo-pager>
+        <dxi-column dataField="id" caption="Id" [width]="50"></dxi-column>
+        <dxi-column dataField="carName" caption="Araba Adı"></dxi-column>
+        <dxi-column dataField="modelYear" caption="Model"></dxi-column>
+        <dxi-column dataField="colorId" [editorOptions]="{ placeholder: 'Renk Seçiniz...' }" caption="Renk">
+            <dxo-lookup [dataSource]="colors" displayExpr="name" valueExpr="id"></dxo-lookup>
+        </dxi-column>
+        <dxi-column dataField="brandId" [editorOptions]="{ placeholder: 'Marka Seçiniz...' }" caption="Marka">
+            <dxo-lookup [dataSource]="brands" displayExpr="name" valueExpr="id"></dxo-lookup>
+        </dxi-column>
+        <dxi-column dataField="dailyPrice"
+            [format]="{ style: 'currency', currency: 'TRY', useGrouping: true, minimumSignificantDigits: 5 }"
+            caption="Günlük Kiralama Ücreti">
+        </dxi-column>
+        <dxi-column dataField="description" caption="Açıklama"  [format]="{ style: 'currency', currency: 'TRY', useGrouping: true, minimumSignificantDigits: 5 }"></dxi-column>
 
-<dxo-editing
-    mode="popup"
-    [allowUpdating]="true">
-    <dxo-popup
-        title="Arabayı Düzenle"
-        [showTitle]="true"
-        [width]="700"
-        [height]="525">
-    </dxo-popup>
-    <dxo-form>
-        <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
-            <dxi-item dataField="carName"></dxi-item>
-            <dxi-item dataField="modelYear"></dxi-item>
-            <dxi-item dataField="colorName"></dxi-item>
-            <dxi-item dataField="brandName"></dxi-item>
-            <dxi-item dataField="dailyPrice" valueFormat="#0.00"></dxi-item>
-        </dxi-item>
+        <dxo-editing mode="popup" [allowUpdating]="true">
+            <dxo-popup title={{popupTitle}} [showTitle]="true">
+            </dxo-popup>
+            <dxo-form>
+                <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+                <dxi-item [colSpan]="2">
+                    <dx-file-uploader
+                    selectButtonText="Araç Fotoğraflarını Yükle"
+                    labelText=""
+                    accept="image/*"
 
+                    [multiple]="true"
+                    [(value)]="value">
+                </dx-file-uploader>
+                <hr>
+                </dxi-item>
+                    <dxi-item dataField="carName">
+                        <dxi-validation-rule type="required" message="Araba Adı Zorunludur !"></dxi-validation-rule>
+                    </dxi-item>
 
-        <dxi-item itemType="group" caption="Araba Açıklaması" [colCount]="2" [colSpan]="2">
-          <dxi-item
-          dataField="description"
-          editorType="dxTextArea"
-          [colSpan]="2"
-          [editorOptions]="{ height: 100 }">
-      </dxi-item>
-        </dxi-item>
-    </dxo-form>
-</dxo-editing>
+                    <dxi-item dataField="modelYear">
+                        <dxi-validation-rule type="required" message="Model Zorunludur !"></dxi-validation-rule>
+                    </dxi-item>
+                    <dxi-item dataField="colorId">
+                        <dxi-validation-rule type="required" message="Araba Rengi Seçmek Zorunludur !">
+                        </dxi-validation-rule>
+                    </dxi-item>
+                    <dxi-item dataField="brandId" placeholder="Marka Seçiniz...">
+                        <dxi-validation-rule type="required" message="Araba Markası Seçmek Zorunludur !">
+                        </dxi-validation-rule>
+                    </dxi-item>
+                    <dxi-item dataField="dailyPrice">
+                        <dxi-validation-rule type="required" message="Ücret Zorunludur !"></dxi-validation-rule>
+                    </dxi-item>
+                </dxi-item>
+            
+                    <dxi-item dataField="description" editorType="dxTextArea" [colSpan]="2"
+                        [editorOptions]="{ height: 100 }">
+                        <dxi-validation-rule type="required" message="Araba Açıklaması Zorunludur !">
+                        </dxi-validation-rule>
+                    </dxi-item>
+            </dxo-form>
+        </dxo-editing>
 
-<dxo-export [enabled]="true"  [allowExportSelectedData]="false"></dxo-export>
-</dx-data-grid>
+        <dxo-export [enabled]="true" [allowExportSelectedData]="false"></dxo-export>
+    </dx-data-grid>
 </div>
