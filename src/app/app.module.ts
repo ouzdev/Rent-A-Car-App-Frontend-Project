@@ -10,9 +10,12 @@ import { CarComponent } from './components/car/car.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { ActivePipe } from 'src/shared/active-pipe';
 import { DxBoxModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFileUploaderModule, DxFormModule, DxLoadIndicatorModule, DxNumberBoxModule, DxSelectBoxModule, DxTemplateModule } from 'devextreme-angular';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,8 +26,6 @@ import { DxBoxModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFile
     CustomerComponent,
     RentalComponent,
     NavbarComponent,
-    SidebarComponent,
-    ActivePipe
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,12 @@ import { DxBoxModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFile
     DxBoxModule,
     DxDataGridModule,
     DxNumberBoxModule,
-    DxCheckBoxModule
+    DxCheckBoxModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,19 @@
+<mat-toolbar color="primary">
+  <span>Ouzdev® Araç Kiralama Yönetim Paneli</span>
+    <span class="spacer"></span>
+    <a class="menu-link" mat-button [routerLink]="['/cars']" routerLinkActive="active">Araçlar</a>
+    <a class="menu-link" mat-button [routerLink]="['/brands']" routerLinkActive="active">Markalar</a>
+    <a class="menu-link" mat-button [routerLink]="['/colors']" routerLinkActive="active">Renkler</a>
+    <a class="menu-link" mat-button [routerLink]="['/rentals']" routerLinkActive="active">Kiralanan Araçlar</a>
 
+    <button mat-mini-fab color="warn" color="warn" aria-label="Example icon button with a home icon">
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  
+</mat-toolbar>
 <div class="container-fluid">
   <div class="row">
-    <app-sidebar></app-sidebar>
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-12">
       <router-outlet></router-outlet>
     </main>
   </div>

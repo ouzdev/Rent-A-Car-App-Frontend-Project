@@ -1,0 +1,10 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  .menu-link{
+      color: white;
+  }
+  .active{
+    background: #82CE34;
+    color: white;
+}

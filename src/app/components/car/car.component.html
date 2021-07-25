@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <dx-data-grid id="gridContainer" [dataSource]="carGridDataSource" [showBorders]="true" [columnAutoWidth]="true"
+    <dx-data-grid id="gridContainer" [dataSource]="carGridDataSource" keyExpr="id" [focusedRowEnabled]="true" [showBorders]="true" [columnAutoWidth]="true"
         (onRowInserting)="addCarEvent($event)" (onInitNewRow)="initNewCar('InitNewRow')"
         (onEditingStart)="updateCar('EditingStart')">
         <dxo-load-panel [enabled]="true">
@@ -32,12 +32,13 @@
                 <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
                 <dxi-item [colSpan]="2">
                     <dx-file-uploader
-                    selectButtonText="Araç Fotoğraflarını Yükle"
+                    (onValueChanged)="onValueChanged($event)"
+                    selectButtonText="Resim Yükle"
                     labelText=""
                     accept="image/*"
-
                     [multiple]="true"
-                    [(value)]="value">
+                    [(value)]="value"
+                    uploadMode="useForm">
                 </dx-file-uploader>
                 <hr>
                 </dxi-item>
