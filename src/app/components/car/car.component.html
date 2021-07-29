@@ -1,6 +1,6 @@
 <div class="table-responsive">
     <dx-data-grid id="gridContainer" [dataSource]="carGridDataSource" keyExpr="id" [focusedRowEnabled]="true" [showBorders]="true" [columnAutoWidth]="true"
-        (onRowInserting)="addCarEvent($event)" (onInitNewRow)="initNewCar('InitNewRow')"
+        (onRowInserting)="addCarEvent($event)" (onInitNewRow)="initNewCar('InitNewRow')" 
         (onEditingStart)="updateCar('EditingStart')">
         <dxo-load-panel [enabled]="true">
         </dxo-load-panel>

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddBrandDto } from 'src/app/model/brand/addBrandDto';
@@ -20,6 +20,13 @@ export class BrandService {
 
   addBrand(brand:any):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"/add",brand);
+  }
+
+  deleteBrand(brand:any):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"/delete",brand);
+  }
+  updateBrand(brand:any):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"/update",brand);
   }
 
 }

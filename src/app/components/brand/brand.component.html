@@ -1,7 +1,7 @@
 <div class="table-responsive">
-  <dx-data-grid id="gridContainer" [dataSource]="brandDataSource" keyExpr="id" [focusedRowEnabled]="true"
-    [showBorders]="true" [columnAutoWidth]="true"  (onRowInserting)="addBrandEvent($event)" (onInitNewRow)="initNewBrand('InitNewRow')"
-    (onEditingStart)="updateBrand('EditingStart')">
+  <dx-data-grid id="gridContainer" [dataSource]="brandDataSource" keyExpr="id" [focusedRowEnabled]="true" [cacheEnabled]="false"
+    [showBorders]="true" [columnAutoWidth]="true" (onRowInserting)="insertRow($event)"
+    (onRowRemoving)="removeRow($event)" (onInitNewRow)="initNewBrand('InitNewRow')" (onEditingStart)="editingBrand('EditingStart')" (onRowUpdating)="updateRow($event)">
     <dxo-load-panel [enabled]="true">
     </dxo-load-panel>
     <dxo-header-filter [visible]="true" [allowSearch]="true"></dxo-header-filter>

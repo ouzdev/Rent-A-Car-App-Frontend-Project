@@ -32,6 +32,7 @@ export class CarComponent implements OnInit {
 
   addCarEvent(data:any) {
   
+  console.log(data);
   }
 
   updateCar(data:any){
