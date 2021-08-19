@@ -32,31 +32,30 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Project Tree Structure 
 ```
 📦 Recap_AngularUI
-
 ├─ src
 │  ├─ app
 │  │  ├─ app-routing.module.ts
-app.component.css
-app.component.html
-app.component.spec.ts
+│  │  ├─ app.component.css
+│  │  ├─ app.component.html
+│  │  ├─ app.component.spec.ts
 │  │  ├─ app.component.ts
 │  │  ├─ app.module.ts
 │  │  ├─ components
 │  │  │  ├─ brand
 │  │  │  │  ├─ brand.component.css
-brand.component.html
+│  │  │  │  ├─ brand.component.html
 │  │  │  │  └─ brand.component.ts
 │  │  │  ├─ car
 │  │  │  │  ├─ car.component.css
-car.component.html
+│  │  │  │  ├─ car.component.html
 │  │  │  │  └─ car.component.ts
 │  │  │  ├─ color
 │  │  │  │  ├─ color.component.css
-color.component.html
+│  │  │  │  ├─ color.component.html
 │  │  │  │  └─ color.component.ts
 │  │  │  ├─ customer
 │  │  │  │  ├─ customer.component.css
-customer.component.html
+│  │  │  │  ├─ customer.component.html
 │  │  │  │  └─ customer.component.ts
 │  │  │  ├─ navbar
 │  │  │  │  ├─ navbar.component.css
@@ -69,11 +68,11 @@ customer.component.html
 │  │  ├─ model
 │  │  │  ├─ brand
 │  │  │  │  ├─ addBrandDto.ts
-brand.ts
+│  │  │  │  ├─ brand.ts
 │  │  │  │  └─ brandResponseModel.ts
 │  │  │  ├─ car
 │  │  │  │  ├─ car.ts
-carResponseModel.ts
+│  │  │  │  ├─ carResponseModel.ts
 │  │  │  │  └─ cardetails.ts
 │  │  │  ├─ carImage
 │  │  │  │  ├─ carImage.ts
@@ -111,7 +110,7 @@ carResponseModel.ts
 │  │  ├─ environment.prod.ts
 │  │  └─ environment.ts
 │  ├─ favicon.ico
-index.html
+│  ├─ index.html
 │  ├─ main.ts
 │  ├─ polyfills.ts
 │  ├─ styles.css
